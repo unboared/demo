@@ -7,7 +7,6 @@ import GameGamepad from '../Game/Gamepad'
 import GameScreen from '../Game/Screen'
 
 import EndgameGamepad from '../Endgame/Gamepad'
-import EndgameScreen from '../Endgame/Screen'
 
 const Scenario = {
     "home": {
@@ -20,7 +19,12 @@ const Scenario = {
     },
     "endgame": {
         gamepad: <EndgameGamepad />,
-        screen: <EndgameScreen />,
+        screen: null,   /**  
+                         *  The value is null because we transit to the 'endgame' scene by
+                         *  using the component itself (see line 26 in `/src/Game/Screen.tsx`).
+                         *  This allows us to pass arguments to the component depending on the 
+                         *  previous scene.
+                         */
     }
 }
 
