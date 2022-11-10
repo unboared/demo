@@ -1,2 +1,3 @@
-# Unboared game (minimal demo)
+# Unboared game (React Demo)
 
+Dans cette démo 

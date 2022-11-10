@@ -1,49 +1,28 @@
 import React from 'react'
-import { Text, TouchableOpacity, View, StyleSheet } from 'react-native'
+import { Text } from 'react-native'
 
-import { GAME_NAME } from './config/Const'
 import { UnboaredGame, useUnboared } from '@unboared/native.lib'
 
-const GamepadView = () => {
+import { GAME_NAME } from './config/Const'
+import Scenario from './config/Scenario'
+
+const GamepadSceneManager = () => {
     const unboared = useUnboared()
 
-    return <View style={styles.center}>
-        <TouchableOpacity
-            style={[styles.center, { backgroundColor: "#FAF" }]}
-            onPress={() => unboared.emitAction("pressA")}>
-            A
-        </TouchableOpacity>
-        <TouchableOpacity
-            style={[styles.center, { backgroundColor: "#AFF" }]}
-            onPress={() => unboared.emitAction("pressB")}>
-            B
-        </TouchableOpacity>
-        <TouchableOpacity
-            style={[styles.center, { backgroundColor: "#FFA" }]}
-            onPress={() => unboared.emitAction("pressC")}>
-            C
-        </TouchableOpacity>
-    </View>
+    console.log("JE SUIS ICIIII")
+    console.log(Scenario[unboared.getScenario().scenario].gamepad)
+
+
+    return (Scenario[unboared.getScenario().scenario].gamepad)
 }
 
 export default () => {
-
     return (
         <UnboaredGame
             name={GAME_NAME}
             loader={<Text>Loading gamepad ...</Text>}
         >
-            <GamepadView />
+            <GamepadSceneManager />
         </UnboaredGame>
     );
 }
-
-
-const styles = StyleSheet.create({
-    center: {
-        flex: 1,
-        alignSelf: 'stretch',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-})
