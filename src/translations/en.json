@@ -1,0 +1,23 @@
+{ 
+  "screen": {
+    "home": {
+      "startText" :"Press A to start the game",
+      "clickA" :"Click on A"
+    },
+    "game": {
+      "help" : "Press each button %{numClick} times to win",
+      "clickA" :"Click on A",
+      "clickB" :"Click on B",
+      "clickC" :"Click on C"
+    },
+    "endgame": {
+      "title" : "Final score",
+      "goHome" :"Back to home",
+      "restart" :"Restart game"
+    }
+  },
+  "gamepad" : {
+
+  }
+      
+}

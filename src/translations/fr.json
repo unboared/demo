@@ -1,0 +1,23 @@
+{ 
+  "screen": {
+    "home": {
+      "startText" :"Appuyez sur A pour démarrer le jeu",
+      "clickA" :"Cliquez sur A"
+    },
+    "game": {
+      "help" : "Appuyez chaque bouton %{numClick} fois pour gagner",
+      "clickA" :"Cliquez sur A",
+      "clickB" :"Cliquez sur B",
+      "clickC" :"Cliquez sur C"
+    },
+    "endgame": {
+      "title" : "Score final",
+      "goHome" :"Retour au menu",
+      "restart" :"Recommencer le jeu"
+    }
+  },
+  "gamepad" : {
+
+  }
+      
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 
+import { useTranslate } from '@unboared/base-ui.all'
 import { useExternalScenario, useListener, useUnboared } from '@unboared/native.lib'
 
 import { GAME_NAME, NUM_CLICK_TO_WIN } from '../config/Const'
@@ -9,6 +10,7 @@ import Endgame from '../Endgame/Screen'
 
 const Screen = () => {
     const unboared = useUnboared()
+    const { translate } = useTranslate()
 
     const [countA, setCountA] = useState(0)
     const [countB, setCountB] = useState(0)
@@ -33,16 +35,16 @@ const Screen = () => {
         <View style={styles.center}>
             <ColorView style={styles.center} color="#FFF">
                 <Text>Scene : {unboared.getScenario().scenario}</Text>
-                <Text>Press each button {NUM_CLICK_TO_WIN} times to win </Text>
+                <Text>{translate("screen.game.help", { numClick: NUM_CLICK_TO_WIN })} </Text>
             </ColorView>
             <ColorView style={styles.center} color="#FAF">
-                <Text>Click on A : {countA}</Text>
+                <Text>{translate("screen.game.clickA")} : {countA}</Text>
             </ColorView>
             <ColorView style={styles.center} color="#AFF">
-                <Text>Click on B : {countB}</Text>
+                <Text>{translate("screen.game.clickB")} : {countB}</Text>
             </ColorView>
             <ColorView style={styles.center} color="#FFA">
-                <Text>Click on C : {countC}</Text>
+                <Text>{translate("screen.game.clickC")} : {countC}</Text>
             </ColorView>
         </View>
     )
