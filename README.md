@@ -26,9 +26,9 @@ cd <game-name>
 npm install --legacy-peer-deps
 ``` 
 
-## Tester le jeu 
+## Tester un jeu
 
-Dans le but de tester le jeu dans des conditions réelles, nous utilisons l'application [game-runner](https://game-runner.web.app). Cette application nécessite que le jeu utilise un certificat SSL.
+Dans le but de tester notre jeu dans des conditions réelles, nous utilisons l'application [game-runner](https://game-runner.web.app/). Cette application nécessite que le jeu utilise un certificat SSL.
 
 ### Génération d'un certificat SSL pour le développement local
 
@@ -36,35 +36,51 @@ Dans un premier temps, nous devons générer un certificat SSL pour le développ
 
 Pour se faire, nous utiliserons l'outil [mkcert](https://github.com/FiloSottile/mkcert).
 
-:warning: L'avantage de mkcert est qu'il ne nécessite aucune configuration et qu'il est beaucoup plus facile à mettre en place que d'autres outils. De plus, mkcert est compatible avec toutes les plates-formes.
+> :bulb: **Info:** L'avantage de [mkcert](https://github.com/FiloSottile/mkcert) est qu'il ne nécessite **aucune configuration** et qu'il est beaucoup plus facile à mettre en place que d'autres outils. De plus, [mkcert](https://github.com/FiloSottile/mkcert) est compatible avec toutes les plates-formes.
 
-- Installer mkcert 
-  - on [Linux](https://kifarunix.com/how-to-create-self-signed-ssl-certificate-with-mkcert-on-ubuntu-18-04/)
-  - on [macOS](https://github.com/FiloSottile/mkcert#macos)
-  - on [Windows](https://github.com/FiloSottile/mkcert#windows)
-- Générer un certificat et une clé privée pour le domaine souhaité
-  - Sur cette machine: 
-    ```
-    mkcert localhost
-    ```
-  - En domaine du réseau local (préférable):
-    ```
-    mkcert 192.168.1.23  // à remplacer par l'adresse IP de la machine
-    ```
-
+1. Commencez par installer [mkcert](https://github.com/FiloSottile/mkcert)
+    - on [Linux](https://kifarunix.com/how-to-create-self-signed-ssl-certificate-with-mkcert-on-ubuntu-18-04/)
+    - on [macOS](https://github.com/FiloSottile/mkcert#macos)
+    - on [Windows](https://github.com/FiloSottile/mkcert#windows)
+2. Générez un certificat et une clé privée pour le domaine souhaité:
+    - Sur ma machine:
+        
+        ```bash
+        mkcert localhost
+        ```
+        
+    - En domaine du réseau local (préférable):
+        
+        ```bash
+        mkcert 192.168.1.23  # à remplacer par l'adresse IP de la machine
+        ```
+        
+        
 ### Utilisation du certificat SSL généré pour tester le jeu
-- Lancer le jeu en local (en mode sécurisé `https`)
-```
+
+Nous pouvons désormais lancer le jeu en local et fournir l’URL de celui-ci au [game-runner](https://game-runner.web.app/).
+
+> :warning: **Attention:** Le [game-runner](https://game-runner.web.app/) est une application qui permet de faire tourner les jeux sous la  technologie Unboared. **Vous ne pourrez pas tester vos jeux sans celui-ci.**
+
+
+**1. Lancer le jeu en local**
+
+Pour lancer le jeu en local et en mode sécurisé `https`, nous utilisons la commande suivante:
+
+```bash
+# Utiliser le chemin d'accès au certificat et à la clé SSL précédemment générés
 HTTPS=true SSL_CRT_FILE=./192.168.1.23.pem SSL_KEY_FILE=./192.168.1.23-key.pem expo start:web --https
 ```
-- Utiliser l'URL d'accès au screen du jeu et dans le [game-runner](https://game-runner.web.app)
 
-**OU**
+**2. Tester le jeu**
 
+Pour tester le jeu, nous devons lancer le [game-runner](https://game-runner.web.app/) et lui fournir l'URL d'accès au screen ainsi que le nom du jeu. 
 
-- Dans un navigateur web, copier/coller la requête suivante en modifiant les paramètres:
-  - `game-name` : le nom du jeu à tester
-  - `screen-url` : l'URL d'accès au screen du jeu
-```
-https://game-runner.web.app/screen?name=<game-name>&url=<screen-url>
-```
+> :bulb: **Astuce:** Il est aussi possible de copier/coller directement  la requête suivante dans un navigateur web, en modifiant les paramètres:
+>
+> - `game-name` : le nom du jeu à tester
+> - `screen-url` : l'URL d'accès au screen du jeu
+> 
+> ```html
+> https://game-runner.web.app/screen?name=><game-name>&url=<screen-url>
+> ```
