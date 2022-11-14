@@ -28,7 +28,7 @@ npm install --legacy-peer-deps
 
 ## Tester un jeu
 
-Dans le but de tester notre jeu dans des conditions réelles, nous utilisons l'application [game-runner](https://game-runner.web.app/). Cette application nécessite que le jeu utilise un certificat SSL.
+Dans le but de tester notre jeu dans des conditions réelles, nous utilisons l'application [game-runner](https://run.unboared.com/). Cette application nécessite que le jeu utilise un certificat SSL.
 
 ### Génération d'un certificat SSL pour le développement local
 
@@ -58,9 +58,9 @@ Pour se faire, nous utiliserons l'outil [mkcert](https://github.com/FiloSottile/
         
 ### Utilisation du certificat SSL généré pour tester le jeu
 
-Nous pouvons désormais lancer le jeu en local et fournir l’URL de celui-ci au [game-runner](https://game-runner.web.app/).
+Nous pouvons désormais lancer le jeu en local et fournir l’URL de celui-ci au [game-runner](https://run.unboared.com/).
 
-> :warning: **Attention:** Le [game-runner](https://game-runner.web.app/) est une application qui permet de faire tourner les jeux sous la  technologie Unboared. **Vous ne pourrez pas tester vos jeux sans celui-ci.**
+> :warning: **Attention:** Le [game-runner](https://run.unboared.com/) est une application qui permet de faire tourner les jeux sous la  technologie Unboared. **Vous ne pourrez pas tester vos jeux sans celui-ci.**
 
 
 **1. Lancer le jeu en local**
@@ -74,7 +74,7 @@ HTTPS=true SSL_CRT_FILE=./192.168.1.23.pem SSL_KEY_FILE=./192.168.1.23-key.pem e
 
 **2. Tester le jeu**
 
-Pour tester le jeu, nous devons lancer le [game-runner](https://game-runner.web.app/) et lui fournir l'URL d'accès au screen ainsi que le nom du jeu. 
+Pour tester le jeu, nous devons lancer le [game-runner](https://run.unboared.com/) et lui fournir l'URL d'accès au screen ainsi que le nom du jeu. 
 
 > :bulb: **Astuce:** Il est aussi possible de copier/coller directement  la requête suivante dans un navigateur web, en modifiant les paramètres:
 >
