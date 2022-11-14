@@ -91,5 +91,5 @@ Pour tester le jeu, nous devons lancer le [game-runner](https://run.unboared.com
 > - `screen-url` : l'URL d'accès au screen du jeu
 > 
 > ```html
-> https://game-runner.web.app/screen?name=><game-name>&url=<screen-url>
+> https://run.unboared.com/screen?name=><game-name>&url=<screen-url>
 > ```
